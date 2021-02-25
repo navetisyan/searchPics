@@ -3,7 +3,6 @@ import React from "react";
 import ImageCard from "./imageCard";
 
 const ImageList = (props) => {
-  console.log("props==", props);
   const imageDivs = props.images.map((image, index) => {
     // eslint-disable-next-line jsx-a11y/alt-text
     return <ImageCard key={index} image={image} />;
