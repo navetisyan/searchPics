@@ -14,10 +14,10 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="ui segment">
+      <div className="ui bottom attached active tab segment">
         <form className="ui form" onSubmit={this.onSubmitValue}>
           <div className="field">
-            <label>Input search</label>
+            <label>Input search for {this.props.content}</label>
             <input
               type="text"
               onChange={(e) => this.setState({ term: e.target.value })}
