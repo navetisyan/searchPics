@@ -6,7 +6,7 @@ node_modules
 .history/
 
 # builds
-build
+#build
 dist
 
 # misc
