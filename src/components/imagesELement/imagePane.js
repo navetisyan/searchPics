@@ -1,8 +1,9 @@
 import React from "react";
-import SearchBar from "./searchBar";
+import unsplash from "../../api/unsplash";
+import SearchBar from "../searchBar";
 import ImageList from "./imageList";
 
-class VideoPane extends React.Component {
+class ImagePane extends React.Component {
   constructor(props) {
     super(props);
     this.state = { images: [] };
@@ -12,12 +13,17 @@ class VideoPane extends React.Component {
 
   onSearchSubmit = async (term) => {
     console.log("term==", term);
+    const response = await unsplash.get(`/search/photos`, {
+      params: { query: term },
+    });
+
+    this.setState({ images: response.data.results });
   };
 
   render() {
     return (
       <div>
-        <SearchBar content="video" onSubmit={this.onSearchSubmit} />
+        <SearchBar content="image" onSubmit={this.onSearchSubmit} />
         Found: {this.state.images.length} images
         <ImageList images={this.state.images} />
       </div>
@@ -25,4 +31,4 @@ class VideoPane extends React.Component {
   }
 }
 
-export default VideoPane;
+export default ImagePane;
